@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>TrihackFinals_Team_Trifyyndor</title>
+
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="style.css">
+		
+
+	</head>
+
+
+	<body >
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<div class="site-content">
+			<div class="site-header">
+				<div class="container" >
+					<a href="index.html" class="branding">
+						<img src="images/logo.png" alt="" class="logo" height="250px" width="250px">
+						<div class="logo-type">
+							<h1 class="site-title">IIIT ALLAHABAD</h1>
+							<small class="site-description">Aparoksha'17 <i>presents:</i></small>
+
+						</div>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="logo-type">
+							<h1 class="site-title-info" align='center'>"Weather On <br>The Go.."</h1>
+							
+
+						</div>
+					</a>
+                                        <div class="mobile-navigation"></div>
+
+				</div>
+			</div> <!-- .site-header -->
+
+			<div class="hero" data-bg-image="images/banner.png">
+				<div class="container">
+					<form action="#" class="find-location">
+						<input type="text" placeholder="Enter your location..." id="userInput">
+						<input type="submit" onClick="test()" value="What is the Weather?">
+					</form>
+
+				</div>
+			</div>
+			<script type="text/javascript">
+                            function test(){
+             var userInput = document.getElementById("userInput").value;
+             document.getElementById("Location").innerHTML = userInput;
+            $.getJSON("http://api.openweathermap.org/data/2.5/weather?q="+userInput+"&APPID=36b03cf61e2ecdaeabbd84f6b78c6e13", function(data){  
+            document.getElementById("temp").innerHTML=Math.round(data.main.temp-273)+"<sup>o</sup>C";
+	    document.getElementById("humidity").innerHTML=data.main.humidity+"%";
+	    document.getElementById("wind").innerHTML=data.wind.speed+"m/s";
+	    document.getElementById("dir").innerHTML=data.wind.deg+"<sup>o</sup>";
+            var date=new Date();
+            document.getElementById("date").innerHTML=date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+        document.getElementById("time").innerHTML=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();			            
+	                                               });    
+                                           }
+                        </script>
+			<div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						<div class="today forecast">
+							<div class="forecast-header">
+								<div class="date" id="date"></div>
+								<div class="time" id="time"></div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="location" id="Location"></div>
+								<div class="degree">
+									<div class="num" id="temp"><sup>o</sup>C</div>
+									<div class="forecast-icon">
+										<img src="images/icons/icon-1.svg" alt="" width=90>
+									</div>	
+								</div>
+								<img src="images/icon-umberella.png" alt=""><span id="humidity">%</span>
+								<img src="images/icon-wind.png" alt=""><span id="wind">m/s</span>
+								<img src="images/icon-compass.png" alt=""><span id="dir"><sup>o</sup></span>
+							</div>
+						
+					</div>
+				</div>
+			</div>
+			
+			<footer class="site-footer">
+				<div class="container" >
+					<div class="row">
+						<div class="col-md-3 col-md-offset-1">
+							<div class="social-links">
+								<a href="http://www.fb.com"><i class="fa fa-facebook"></i></a>
+								<a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
+								<a href="http://www.google.co.in"><i class="fa fa-google-plus"></i></a>
+								<a href="http://pinterest.com"><i class="fa fa-pinterest"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<p class="colophon">Sourin,Sudhanshu.All rights reserved</p>
+				</div>
+			</footer> <!-- .site-footer -->
+		</div>
+		
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/app.js"></script>
+		
+	</body>
+
+</html>
